@@ -9,13 +9,22 @@ Systematic comparison of four ML model families for predicting ICU mortality on 
 
 **Key result:** Structured time-series features dominate text for short-horizon ICU mortality. The interesting question is not which model wins, but what each modality actually captures.
 
-\Python\ \PyTorch\ \	orchdiffeq\ \HuggingFace\ \XGBoost\ \PEFT\ \SLURM/HPC
+`Python` `PyTorch` `torchdiffeq` `HuggingFace` `XGBoost` `PEFT` `SLURM/HPC`
+
 ### [Balatro RL](https://github.com/taggarttufte/balatro-rl)
 PPO reinforcement learning agent that plays the roguelike card game Balatro via a custom Gymnasium environment and live file-based IPC with a Lua game mod. All navigation is handled headlessly by the Lua mod — no mouse or keyboard automation. Trains at 32x game speed. Built from scratch: IPC protocol, reward shaping, boss blind edge cases, and full training pipeline.
 
 **119-dim obs space, MultiBinary(9) action space, reward shaping across sparse multi-step episodes.**
 
-\Python\ \Stable-Baselines3\ \Gymnasium\ \Lua\ \PPO
+**Outcome (Apr 2026):** Iterated across 8 PPO variants; best version (V7) peaked at 2.35% Ante-8 win rate. Concluded the pure model-free approach and flagged MCTS as the next direction — Balatro's branching factor rewards explicit lookahead more than reward shaping alone.
+
+`Python` `Stable-Baselines3` `Gymnasium` `Lua` `PPO`
+
+### [Book Reviews](https://taggarttufte.github.io/book-reviews/)
+Live Jekyll site of long-form reviews on AI safety, philosophy of science, and epistemology — Taleb, Christian, Callard, Hao, and others. Each review is its own argument, not a summary: what the book changed, where it falls short, and how it connects to alignment or my own research. Source: [taggarttufte/book-reviews](https://github.com/taggarttufte/book-reviews).
+
+`Jekyll` `GitHub Pages` `kramdown` `MathJax`
+
 ## Other Projects
 
 **[Ski Resort Pricing Analysis](https://github.com/taggarttufte/ski-resort-pricing)**
