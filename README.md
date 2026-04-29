@@ -27,6 +27,9 @@ Live Jekyll site of long-form reviews on AI safety, philosophy of science, and e
 
 ## Other Projects
 
+**[Multi-Voice Audiobook Generator](https://github.com/taggarttufte/multivoice-audiobook)**
+End-to-end EPUB → multi-voice MP3 audiobook pipeline using xAI's Grok TTS. Heuristic dialogue attribution with confidence scoring, gender-matched voice mapping, per-segment caching, and a bundled Flask web player with variable speed, bookmarks, and paragraph-synced read-along. 7 books rendered to date; ~70× cheaper to run than ElevenLabs at comparable quality.
+
 **[Ski Resort Pricing Analysis](https://github.com/taggarttufte/ski-resort-pricing)**
 Predictive modeling of season pass prices across 500+ resorts using multi-variable regression and Cholesky decomposition. Built from numerical foundations rather than black-box libraries.
 
@@ -35,7 +38,7 @@ Image compression via Singular Value Decomposition. 17x compression at rank-50 w
 
 ## Tech Stack
 
-Python · PyTorch · NumPy · pandas · scikit-learn · HuggingFace Transformers · Stable-Baselines3 · MATLAB · XGBoost · Git · SLURM
+Python · PyTorch · NumPy · pandas · scikit-learn · HuggingFace Transformers · Stable-Baselines3 · Flask · MATLAB · XGBoost · Git · SLURM
 
 ## Background
 
