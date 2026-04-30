@@ -4,6 +4,13 @@ Mathematics major at Montana State University, graduating May 2026. Building at 
 
 ## Current Work
 
+### [Refusal-Direction Ablation Across the Gemma Family](https://github.com/taggarttufte/refusal-direction-study)
+Empirical study of how Arditi et al.'s (NeurIPS 2024) "refusal lives in a single direction" finding transfers across model families. Replicated cleanly on Qwen 2.5 1.5B (10/10 coherent jailbreak, N=12 with explicit coherence checks), then mapped a 5x3 block-by-direction matrix across Gemma 2 2B, Gemma 3 1B, and Gemma 4 E2B to test single-layer ablation. Cross-Gemma results are dramatically asymmetric — Gemma 3 is the architectural outlier, not the rule.
+
+**Key result:** Direct parameter inspection found that Gemma 3's `post_attention_layernorm` and `post_feedforward_layernorm` gains are 5–30x larger than Gemma 2, Gemma 4, or Qwen — amplifying per-block residual perturbations and making single-layer interventions disproportionately effective. Gemma 4 corrected the calibration. Random-direction control rules out the noise-injection alternative. Inference-only on a 12 GB consumer GPU.
+
+`PyTorch` `HuggingFace Transformers` `mechanistic interpretability` `forward hooks` `matplotlib`
+
 ### [Neural ODE for ICU Mortality Prediction](https://github.com/taggarttufte/neural-ode-icu)
 Systematic comparison of four ML model families for predicting ICU mortality on MIMIC-IV (74,829 patients). Feature-engineered XGBoost (AUROC 0.9565) significantly outperforms Neural ODEs (0.9039) and clinical language models (0.8809), with all differences confirmed by bootstrap CIs and DeLong significance tests. Investigated whether clinical text models exploit code status documentation (CMO/DNR) as a confound using a novel multi-task ClinicalBERT framework.
 
@@ -42,4 +49,4 @@ Python · PyTorch · NumPy · pandas · scikit-learn · HuggingFace Transformers
 
 ## Background
 
-Strong foundation in numerical linear algebra, real analysis, and statistical theory. Research focus on applying mathematical methods to clinical ML and RL problems. Experience with HPC (MSU Tempest, NVIDIA A40) for training neural models at scale. Interested in AI safety.
+Strong foundation in numerical linear algebra, real analysis, and statistical theory. Experience with HPC (MSU Tempest, NVIDIA A40) for training neural models at scale. Interested in AI safety and Alignment.
