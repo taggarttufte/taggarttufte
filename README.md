@@ -11,6 +11,13 @@ Empirical study of how Arditi et al.'s (NeurIPS 2024) "refusal lives in a single
 
 `PyTorch` `HuggingFace Transformers` `mechanistic interpretability` `forward hooks` `matplotlib`
 
+### [Attention-Decay in Pandemic Surveillance](https://github.com/taggarttufte/aixbio-hackathon-2026)
+Comparative evaluation of multi-signal pandemic early-warning, submitted to Apart Research's AIxBio Hackathon (Track 2) and externally reviewed. Tests whether four surveillance signal types — wastewater PCR, Google Trends, Wikipedia pageviews, and CDC syndromic data — keep calibrated relationships with clinical ground truth across a pathogen's transition from emerging to endemic, using COVID-19 as the subject and influenza as a controlled comparison.
+
+**Key result:** Attention-based signals show 5–23x variance compression after the first major COVID-19 wave but none across flu seasons — attention decay is an emerging-disease novelty-cycle phenomenon, not a property of the signal type. Wastewater is the only signal type that holds calibration across the full lifecycle. Includes an honest negative result on LLM-conversation surveillance.
+
+`Python` `pandas` `HuggingFace Transformers` `time-series anomaly detection` `matplotlib`
+
 ### [Neural ODE for ICU Mortality Prediction](https://github.com/taggarttufte/neural-ode-icu)
 Systematic comparison of four ML model families for predicting ICU mortality on MIMIC-IV (74,829 patients). Feature-engineered XGBoost (AUROC 0.9565) significantly outperforms Neural ODEs (0.9039) and clinical language models (0.8809), with all differences confirmed by bootstrap CIs and DeLong significance tests. Investigated whether clinical text models exploit code status documentation (CMO/DNR) as a confound using a novel multi-task ClinicalBERT framework.
 
@@ -19,11 +26,9 @@ Systematic comparison of four ML model families for predicting ICU mortality on 
 `Python` `PyTorch` `torchdiffeq` `HuggingFace` `XGBoost` `PEFT` `SLURM/HPC`
 
 ### [Balatro RL](https://github.com/taggarttufte/balatro-rl)
-PPO reinforcement learning agent that plays the roguelike card game Balatro via a custom Gymnasium environment and live file-based IPC with a Lua game mod. All navigation is handled headlessly by the Lua mod — no mouse or keyboard automation. Trains at 32x game speed. Built from scratch: IPC protocol, reward shaping, boss blind edge cases, and full training pipeline.
+PPO reinforcement learning agent for the roguelike poker deckbuilder Balatro — eight architecture versions, ~366 hours of compute. Started by training against the live game through a Lua mod with file/socket IPC (V1–V3), then pivoted to a from-scratch, audited Python simulation (164 jokers, consumables, boss blinds) for a ~12,500x throughput speedup. The final V7 agent uses a hierarchical action space — an intent head over play/discard/use plus a learned card-selection head — over a 434-dim observation at ~2.5M parameters, peaking at a 2.35% solo win rate and reaching ante 9 reliably with strategic discarding.
 
-**119-dim obs space, MultiBinary(9) action space, reward shaping across sparse multi-step episodes.**
-
-**Outcome (Apr 2026):** Iterated across 8 PPO variants; best version (V7) peaked at 2.35% Ante-8 win rate. Concluded the pure model-free approach and flagged MCTS as the next direction — Balatro's branching factor rewards explicit lookahead more than reward shaping alone.
+**Key result:** The ~2% ceiling is capacity-insensitive. Six reward-shaping retunes, a 5.5x network scale-up, and four self-play variants all hit the same plateau — the bottleneck is the exploration mechanism, not network size. Concluded with a principled next axis: MCTS with a neural policy/value prior, not more model-free PPO.
 
 `Python` `Stable-Baselines3` `Gymnasium` `Lua` `PPO`
 
