@@ -1,6 +1,6 @@
 # Hi, I'm Taggart
 
-Mathematics BS, Montana State University, May 2026. Independent researcher working at the intersection of reinforcement learning, mechanistic interpretability, and AI safety — mostly on whether hidden behavior can be planted in a model, and whether it can be caught.
+Mathematics BS, Montana State University, May 2026 — completed in three years, working through college. Independent researcher at the intersection of reinforcement learning, mechanistic interpretability, and AI safety — mostly on whether hidden behavior can be planted in a model, and whether it can be caught.
 
 ## Current Work
 
@@ -24,6 +24,13 @@ PPO reinforcement learning agent for the roguelike poker deckbuilder Balatro —
 **Key result:** The ~2% ceiling is capacity-insensitive. Six reward-shaping retunes, a 5.5x network scale-up, and four self-play variants all hit the same plateau — the bottleneck is the exploration mechanism, not network size. Concluded with a principled next axis: MCTS with a neural policy/value prior, not more model-free PPO. An earlier version's headline win rate was invalidated by a self-audit — fixed-seed memorization plus a miscoded joker — and is reported as retracted rather than quietly dropped.
 
 `Python` `PyTorch` `Gymnasium` `Lua` `PPO from scratch` `GAE` `multiprocessing`
+
+### [Algebra Hunt — Automated Search Over Open Problems](https://github.com/taggarttufte/algebra-hunt)
+A certificate-first automated campaign against open problems in quasigroup, loop, and semigroup theory. Encodes candidate conjectures for ATP provers (Vampire, Twee), SAT solvers, and GAP, then runs them under a verification protocol designed so that nothing counts as a result without a machine-checkable certificate — an explicit guard against plausible-looking output that doesn't hold up.
+
+**Key result:** Re-running the QPTP problem library with current provers showed that problems recorded as hard in the 2008–2010 studies now fall quickly — JKVxx_2 solves in 23s under Twee and 206s under Vampire. Corresponded with the library's authors (Stanovský, Kinyon) to confirm the finding and identify which problems remain genuinely open.
+
+`automated theorem proving` `Vampire` `Twee` `SAT` `GAP` `quasigroup/loop theory`
 
 ### [Attention-Decay in Pandemic Surveillance](https://github.com/taggarttufte/aixbio-hackathon-2026)
 Comparative evaluation of multi-signal pandemic early-warning, submitted to Apart Research's AIxBio Hackathon (Track 2) and externally reviewed. Tests whether four surveillance signal types — wastewater PCR, Google Trends, Wikipedia pageviews, and CDC syndromic data — keep calibrated relationships with clinical ground truth across a pathogen's transition from emerging to endemic, using COVID-19 as the subject and influenza as a controlled comparison.
