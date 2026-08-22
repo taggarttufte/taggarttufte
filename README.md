@@ -26,9 +26,9 @@ A PPO agent for the roguelike poker deckbuilder Balatro — eight architecture v
 `Python` `PyTorch` `Gymnasium` `Lua` `PPO` `GAE` `multiprocessing`
 
 ### [Algebra Hunt — Automated Search Over Open Problems](https://github.com/taggarttufte/algebra-hunt)
-A certificate-first automated campaign against open problems in quasigroup, loop, and semigroup theory. Encodes candidate conjectures for ATP provers (Vampire, Twee), SAT solvers, and GAP, then runs them under a verification protocol designed so that nothing counts as a result without a machine-checkable certificate — an explicit guard against plausible-looking output that doesn't hold up.
+A two-week, certificate-first campaign against open problems on stale lists in quasigroup, loop, and semigroup theory: a language model orchestrates automated theorem provers (Vampire, E, Twee, Prover9), Mace4, a SAT solver, and GAP overnight on one desktop CPU, under a verification protocol written down before any result existed — nothing counts without a machine-checkable certificate, an independent re-implementation, and a literature check. The protocol caught two bogus zero-second "proofs," three verdict-parsing bugs, a mislabelled axiom, and one of my own overstatements before anything went out.
 
-**Key result:** Re-running the QPTP problem library with current provers showed that problems recorded as hard in the 2008–2010 studies now fall quickly — JKVxx_2 solves in 23s under Twee and 206s under Vampire. Corresponded with the library's authors (Stanovský, Kinyon) to confirm the finding and identify which problems remain genuinely open.
+**Key result:** Closed the two remaining open orders (14 and 18) of a 1998 conjecture on recursively differentiable quasigroups / recursive MDS codes, with triple-verified tables and a hand-checkable closed form at order 14 — in seconds, by encoding a domain expert's stated intuition (cyclic symmetry) as a SAT constraint after 24 hours of unconstrained search found nothing. Also: power-semigroup determinism verified for all semigroups of order ≤ 6 (apparent first for the finite case), and a mis-encoded "unsolved since 2008" benchmark problem diagnosed with an order-2 countermodel — erratum acknowledged by the library's maintainer.
 
 `automated theorem proving` `Vampire` `Twee` `SAT` `GAP` `quasigroup/loop theory`
 
