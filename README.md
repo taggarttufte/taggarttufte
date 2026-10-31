@@ -1,8 +1,13 @@
 # Hi, I'm Taggart
 
-Mathematics BS, Montana State University, May 2026 — completed in three years, working through college. Independent researcher at the intersection of reinforcement learning, mechanistic interpretability, and AI safety — mostly on whether hidden behavior can be planted in a model, and whether it can be caught.
+Mathematics BS, Montana State University, May 2026 — completed in three years, working through college. AI safety researcher, currently a SPAR Fall 2026 research fellow with Lida Safety Research, plus independent work, at the intersection of reinforcement learning, mechanistic interpretability, and AI safety — mostly on whether hidden behavior can be planted in a model, and whether it can be caught.
 
 ## Current Work
+
+### SPAR Fall 2026 — The Signature of Scheming (Lida Safety Research)
+Research fellow, Sep–Dec 2026, mentored by HK Tan, David Williams-King, and Linh Le. I lead the project's KV-cache stream: where a model that hides a capability until it sees a password stores and checks that "lock" in its attention cache. Trained 21 password-locked 7B model organisms and located the gate with cache-grafting, blending, and layer-ablation experiments; now testing whether the same methods find situational cues (a model noticing it's being evaluated) in models up to Qwen3-32B. Team code is private for now.
+
+`PyTorch` `HuggingFace Transformers` `PEFT` `KV-cache interpretability` `model organisms` `RunPod`
 
 ### [Hidden Triggers in Cartridges — a Model Organism for Backdoors](https://github.com/taggarttufte/cartridge-interp)
 A Cartridge is a trained KV cache: a small, shippable artifact that installs knowledge or behavior into a model without touching its weights — so it's a plausible future supply-chain object. This asks whether a cartridge that does something genuinely useful can also carry a hidden trigger, and whether a defender can detect it. Used as a cheap, reversible model organism: no fine-tuning run, no weight diff, trainable in minutes on one consumer GPU. Run largely as hands-off autonomous overnight campaigns on rented GPUs, each scoped, budgeted, and torn down end to end.
@@ -17,6 +22,13 @@ Empirical study of how Arditi et al.'s (NeurIPS 2024) "refusal lives in a single
 **Key result:** Direct parameter inspection found that Gemma 3's `post_attention_layernorm` and `post_feedforward_layernorm` gains are 5–30x larger than Gemma 2, Gemma 4, or Qwen — amplifying per-block residual perturbations and making single-layer interventions disproportionately effective. Gemma 4 corrected the calibration. Random-direction control rules out the noise-injection alternative. Inference-only on a 12 GB consumer GPU.
 
 `PyTorch` `HuggingFace Transformers` `mechanistic interpretability` `forward hooks` `matplotlib`
+
+### [Incentive-Driven Sandbagging Probe](https://github.com/taggarttufte/incentive-sandbagging-probe)
+Does a small open model sandbag when given a reason to but not told to? Pre-registered test on Qwen3.5-2B/4B over 200 ARC-Challenge questions, with matched irrelevant-notice and instructed positive controls, with and without reasoning.
+
+**Key result:** A pre-registered null. The 4B can underperform on demand but didn't when given an incentive; instead it often flagged the incentive as a prompt-injection attack (42/150 vs 3/150 replies), so the test largely measured injection resistance.
+
+`PyTorch` `HuggingFace Transformers` `pre-registration` `evals` `sandbagging`
 
 ### [Balatro 1v1](https://github.com/taggarttufte/balatro-1v1)
 A statistical 1v1 player for Balatro's Major League multiplayer ruleset, built measurement-first: a bit-exact port of the game's RNG chain verified against its own LuaJIT runtime (126 seeds reproduced exactly through ante 8, en route uncovering a shop rule every published seed analyzer omits — confirmed in the live game), an engine that delegates all generation to that oracle, and an analytic expectimax match player — no network, no search — that beats the trained 106-generation MCTS agent 57/58 head-to-head after a determinization measurement showed the search agent's apparent skill was clairvoyance. Current work: a 5M-parameter V(state)=P(win) trained on counterfactual action pairs rolled out on shared determinized worlds; the ranking loss took argmax-V from 2/60 to 12/60 against the hand-written rules, with the gain attributed by a same-data control. Grew out of [Balatro RL](https://github.com/taggarttufte/balatro-rl) (archived intact as an early artifact): eight PPO architectures over ~366 hours of compute whose concluding "search ceiling" verdict a later self-audit found confounded — that audit is the hinge between the two repos, and the reason the successor starts from ground truth.
